@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="photo"
+            type="com.example.earthquake.Photo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/thumbnail"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:loadThumbnail="@{photo.thumbnail}"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:lines="1"
+            android:layout_marginStart="4dp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:text="@{photo.title}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_body"
+            app:layout_constraintTop_toBottomOf="@id/post_title"
+            app:layout_constraintStart_toEndOf="@id/thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="4dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginTop="4dp"
+            android:text="@{photo.thumbnail}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
